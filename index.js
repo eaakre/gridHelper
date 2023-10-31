@@ -15,7 +15,12 @@ const inputElements = Array.from(document.querySelectorAll("input"));
 inputElements.forEach((input, index) => {
   const list = document.getElementById(`list${index + 1}`);
   input.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" && input.value.trim() !== "") {
+    if (
+      (event.key === "Enter" ||
+        event.key === "Return" ||
+        event.key === "Next") &&
+      input.value.trim() !== ""
+    ) {
       createListItem(input.value, list);
       input.value = "";
     }
